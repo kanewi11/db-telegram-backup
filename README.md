@@ -5,7 +5,7 @@ A Python-based solution to backup data via Telegram with an easy setup process a
 
 # Supported databases
 
-- `PostgreSQL `
+- `PostgreSQL`
 - `MySQL`
 - `MariaDB`
 
