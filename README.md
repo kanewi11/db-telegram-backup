@@ -3,6 +3,12 @@
 
 A Python-based solution to backup data via Telegram with an easy setup process and periodic task scheduling using `crontab`.
 
+# Supported databases
+
+- `PostgreSQL `
+- `MySQL`
+- `MariaDB`
+
 ## Installation
 
 Follow the steps below to install the project:
