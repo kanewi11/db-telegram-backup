@@ -1,3 +1,4 @@
 /*.sql.gz
 .env
 /venv
+__pycache__/

@@ -6,14 +6,19 @@ from dataclasses import dataclass, asdict
 class Command:
     """Commands for different databases"""
     postgres: str = (
-        "docker exec -i {container_name} "
-        "/bin/bash -c 'PGPASSWORD={db_password} "
-        "pg_dump --username {db_user} {db_name}' > {backup_filename}"
+        'docker exec -i {container_name} '
+        '/bin/bash -c "PGPASSWORD={db_password} '
+        'pg_dump --username {db_user} {db_name}" > {backup_filename}'
+    )
+    mariadb: str = (
+        'docker exec -i {container_name} '
+        '/bin/bash -c "MYSQL_PWD={db_password} '
+        'mariadb-dump -u {db_user} {db_name}" > {backup_filename}'
     )
     mysql: str = (
-        "docker exec -i {container_name} "
-        "-c 'MYSQL_PWD={db_password} "
-        "mysqldump -u {db_user} {db_name}' > {backup_filename}"
+        'docker exec -i {container_name} '
+        '/bin/bash -c "MYSQL_PWD={db_password} '
+        'mysqldump -u {db_user} {db_name}" > {backup_filename}'
     )
 
     def dict(self) -> dict[str, str]:
@@ -37,7 +42,7 @@ class BackupService:
         self._db_name = db_name
         self._db_user = db_user
         self.__db_password = db_password
-        self._backup_filename = f"{container_name}_{db_name}.sql"
+        self._backup_filename = f"{db}_{db_name}.sql"
 
     def create_backup(self) -> str:
         """Creates a backup copy of the database"""

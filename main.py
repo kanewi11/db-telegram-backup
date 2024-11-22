@@ -17,12 +17,12 @@ def main() -> None:
     os.chdir(current_dir)
     try:
         backup_name = backup_service.create_backup()
-        backup_path = os.path.join(current_dir, backup_name)
-        telegram_service.send_document(backup_path)
+        backup_path = current_dir.joinpath(backup_name)
+        telegram_service.send_document(str(backup_path))
+        cleanup_service.remove_file(str(backup_path))
         sys.stdout.write("Backup and upload successful")
     except Exception as error:
         sys.stdout.write(f"Error during backup process:\n{error}")
-    cleanup_service.remove_file(backup_path)
 
 
 if __name__ == "__main__":
