@@ -13,7 +13,7 @@ Follow the steps below to install the project:
     ```
 2. Clone the repository:
     ```bash
-    git clone https://github.com/kanewi11/db-telegram-backup.git
+    sudo git clone https://github.com/kanewi11/db-telegram-backup.git
     ```
 3. Enter the project directory:
     ```bash
@@ -51,11 +51,11 @@ Prepare the environment and perform a functional check:
     ```
 2. Create a `.env` file from the example template:
     ```bash
-    cp .envs/.env.example .envs/.env
+    sudo cp .envs/.env.example .envs/.env
     ```
 3. Open the `.env` file for editing:
     ```bash
-    nano .envs/.env
+    sudo nano .envs/.env
     ```
 4. Activate the virtual environment:
     ```bash
